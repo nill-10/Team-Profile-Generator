@@ -71,15 +71,18 @@ function addMember() {
             internInformation();
 
         } else {
-            // const generateHTML = render(team);
-            fs.writeFile('index.html', render(team) ,(err) => {
+            const generateHTML = render(team);
+            if (!fs.existsSync(OUTPUT_DIR)) {
+                fs.mkdirSync(OUTPUT_DIR);
+            }
+            fs.writeFile(outputPath, render(team) ,(err) => {
                 err ? console.error(err):console.log('generated successfully')
             })
             // console.log('Generated HTML:', generateHTML);
             
         }
        
-        // console.log(answers);
+        
     });
 
     };
