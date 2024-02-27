@@ -47,9 +47,6 @@ function managerInformation() {
         const manager = new Manager(data.managerName, data.managerId, data.managerEmail, data.managerOffice);
          team.push(manager);
          addMember();
-         
-        
-
         // console.log(data);
     });
 
@@ -74,8 +71,8 @@ function addMember() {
             internInformation();
 
         } else {
-            const generateHTML = render(team);
-            fs.writeFile('index.html',generateHTML,(err) => {
+            // const generateHTML = render(team);
+            fs.writeFile('index.html', render(team) ,(err) => {
                 err ? console.error(err):console.log('generated successfully')
             })
             // console.log('Generated HTML:', generateHTML);
@@ -112,10 +109,11 @@ function addMember() {
             },
         ])
         .then((data) => {
-          
+            
             const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGitHub);
             team.push(engineer);
             addMember();
+            
             
             // console.log(answers);
         });
@@ -148,9 +146,10 @@ function addMember() {
             },
         ])
         .then((data) => {
-            addMember();
+            
             const intern = new Intern(data.internName,data.internId,data.internEmail,data.internSchool);
             team.push(intern);
+            addMember();
             
             // console.log(answers);
         });

@@ -1,4 +1,3 @@
-
 // creates the team
 const generateTeam = team => {
 
