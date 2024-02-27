@@ -13,7 +13,7 @@ const render = require("./src/page-template.js");
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
-const employee =[]
+const team =[]
 const choices = ['Add an engineer', 'Add an intern', 'Finish building the team'] 
 function managerInformation() {
     inquirer
@@ -42,7 +42,10 @@ function managerInformation() {
     ])
      
     .then((data) => {
-        addMember()
+        addMember();
+        const manager = new Manager(data.managerName, data.managerId, data.managerEmail, data.managerOffice);
+         team.push(manager);
+        
 
         // console.log(data);
     });
@@ -68,6 +71,7 @@ function addMember() {
             internInformation();
 
         } else {
+      
             
         }
        
@@ -101,7 +105,10 @@ function addMember() {
             },
         ])
         .then((data) => {
-            addMember()
+            addMember();
+            const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGitHub);
+            team.push(engineer);
+            
             // console.log(answers);
         });
     };
@@ -133,10 +140,12 @@ function addMember() {
             },
         ])
         .then((data) => {
-            addMember()
+            addMember();
+            const intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
+            team.push(intern);
             // console.log(answers);
         });
     };
 
-    managerInformation()
+    managerInformation();
 
