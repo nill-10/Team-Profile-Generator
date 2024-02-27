@@ -47,6 +47,7 @@ function managerInformation() {
         const manager = new Manager(data.managerName, data.managerId, data.managerEmail, data.managerOffice);
          team.push(manager);
          addMember();
+         
         
 
         // console.log(data);
@@ -111,7 +112,7 @@ function addMember() {
             },
         ])
         .then((data) => {
-            
+          
             const engineer = new Engineer(data.engineerName, data.engineerId, data.engineerEmail, data.engineerGitHub);
             team.push(engineer);
             addMember();
@@ -147,10 +148,10 @@ function addMember() {
             },
         ])
         .then((data) => {
-           
-            const intern = new Intern(data.internName, data.internId, data.internEmail, data.internSchool);
-            team.push(intern);
             addMember();
+            const intern = new Intern(data.internName,data.internId,data.internEmail,data.internSchool);
+            team.push(intern);
+            
             // console.log(answers);
         });
     };
