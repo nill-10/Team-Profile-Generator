@@ -1,4 +1,5 @@
 # Team-Profile-Generator
+![profile screenshot](https://github.com/nill-10/Team-Profile-Generator/assets/152231001/b53d9936-b727-4b48-ad5f-5226e92fc9be)
 
 
 ## Description
