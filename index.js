@@ -13,3 +13,130 @@ const render = require("./src/page-template.js");
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
+const employee =[]
+const choices = ['Add an engineer', 'Add an intern', 'Finish building the team'] 
+function managerInformation() {
+    inquirer
+    .prompt([
+        {
+            type : 'input',
+            name : 'managerName',
+            message : 'enter name of the team manager:',
+        },
+        {
+            type : 'input',
+            name : 'managerId',
+            message : 'enter employee id of the team manager:',
+        },
+        {
+            type : 'input',
+            name : 'managerEmail',
+            message : 'enter email address of the team manager:',
+        },
+        {
+            type : 'input',
+            name : 'managerOffice',
+            message : 'enter Office number of the team manager:',
+        },
+     
+    ])
+     
+    .then((data) => {
+        addMember()
+
+        // console.log(data);
+    });
+
+}; 
+
+function addMember() {
+    inquirer
+    .prompt([
+
+        {
+            type : 'list',
+            message : 'which member do you want to add?',
+            name : 'members',
+            choices: choices,
+        },
+    ])
+    .then((answers) => {
+        if (answers.members === choices[0]) {
+            engineerInformation();
+
+        }  else if (answers.members === choices[1]) {
+            internInformation();
+
+        } else {
+            
+        }
+       
+        // console.log(answers);
+    });
+
+    };
+
+    function engineerInformation() {
+        inquirer
+        .prompt([
+            {
+                type : 'input',
+                name : 'engineerName',
+                message : 'enter name of the team engineer:',
+            },
+            {
+                type : 'input',
+                name : 'engineerId',
+                message : 'enter id of the team engineer:',
+            },
+            {
+                type : 'input',
+                name : 'engineerEmail',
+                message : 'enter email of the team engineer:',
+            },
+            {
+                type : 'input',
+                name : 'engineerGitHub',
+                message : 'enter github username of the team engineer:',
+            },
+        ])
+        .then((data) => {
+            addMember()
+            // console.log(answers);
+        });
+    };
+
+
+    function internInformation() {
+        inquirer
+        .prompt([
+            
+            {
+                type : 'input',
+                name : 'internName',
+                message : 'enter name of the intern:',
+            },
+            {
+                type : 'input',
+                name : 'internId',
+                message : 'enter id of the intern:',
+            },
+            {
+                type : 'input',
+                name : 'internEmail',
+                message : 'enter email of the intern:',
+            },
+            {
+                type : 'input',
+                name : 'internSchool',
+                message : 'enter school of the intern:',
+            },
+        ])
+        .then((data) => {
+            addMember()
+            // console.log(answers);
+        });
+    };
+
+    managerInformation()
+
